@@ -1,3 +1,3 @@
-module stepbrobd.com/hackmit
+module hackmit
 
 go 1.19
