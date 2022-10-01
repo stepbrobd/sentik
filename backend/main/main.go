@@ -11,10 +11,6 @@ import (
 const (
 	//Number of Mappers
 	M			int = 5
-	//Number of Reduce Tasks
-	R			int = 1
-	//Map input files
-	files		string[]
 )
 type ticker struct {
 	Ticker		string
@@ -22,26 +18,21 @@ type ticker struct {
 	Date		string //UTC Format
 }
 
+func fetchTweets() {
+	return ticker{
+		Ticker: "VAPE",
+		Name: "vape juice"
+		Name: time.UTC().Now().String()
+	}
+}
+
 func getTickers(c *gin.Context) {
 	//Spawn map workers
-	for i=0; i<M; i++ {
-		go func(){
-			cmd := exec.Command("go", "run", "../mr/worker.go", "./ticker.so")
-			cmd.Run()
-		}()
-	}
-	m := mr.MakeCoordinator(files, R)
-	for !m.Done() { }
 
-	c.IndentedJSON(http.StatusOK, )
+	c.IndentedJSON(http.StatusOK, fetchTweets())
 }
 
 func main() {
-	if len(os.Args) < 2 {
-		fmt.Fprintf(os.Stderr, "No input files, expects %v", M)
-		os.Exit(1)
-	}
-	files := os.Args[1:]
 	router := gin.Default()
     router.GET("/tickers", getTickers)
 
