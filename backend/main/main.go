@@ -3,15 +3,9 @@ package main
 import (
     "net/http"
 	"log"
-	"os/exec"
-	"hackmit/mr"
     "github.com/gin-gonic/gin"
 )
 
-const (
-	//Number of Mappers
-	M			int = 5
-)
 type ticker struct {
 	Ticker		string
 	Name		string
