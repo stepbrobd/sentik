@@ -1,9 +1,4 @@
 import Meta from "../components/meta";
-import dynamic from "next/dynamic";
-
-const Chart: any = dynamic(import("../components/chart"), {
-  ssr: false,
-});
 
 const Index = () => {
   return (
@@ -17,8 +12,6 @@ const Index = () => {
       />
 
       <h1>Sample Plots below</h1>
-
-      <Chart />
     </>
   );
 };
