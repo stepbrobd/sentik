@@ -1,23 +1,26 @@
 package main
 
 import (
+	"fmt"
 	"log"
-
+	"hackmit/openai"
 	"hackmit/twitter"
 )
 
 func main() {
+	openai := openai.MakeClient()
 	twitter := twitter.MakeClient()
 
-	id, err := twitter.GetUserIDByUsername("StepBroBD")
+	tweets, err := twitter.GetTrendingByTicker("AAPL")
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("UserID: %s", id)
-
-	// tweets, err := twitter.GetUserTweetsByID(id)
-	// if err != nil {
-	//  	log.Fatal(err)
-	// }
-	// log.Printf("Tweets: %v", tweets[0].(map[string]interface{})["text"])
+	for i, t := range tweets {
+		text := t.(map[string]interface{})["text"].(string)
+		sentiment, err := openai.SentimentAnalysis(text)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("[%v]\n[%v]\n[%v]\n\n", i, sentiment, text)
+	}
 }
