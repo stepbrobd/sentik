@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@chakra-ui/react": "^2.3.4",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@heroicons/react": "^2.0.11",
+    "framer-motion": "^4.1.17",
+    "plotly.js": "^2.14.0",
+    "react-plotly.js": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/react-plotly.js": "^2.5.2"
+  }
+}
