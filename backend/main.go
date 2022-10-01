@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"stepbrobd.com/hackmit/twitter"
+	"hackmit/twitter"
 )
 
 func main() {
