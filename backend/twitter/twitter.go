@@ -25,7 +25,7 @@ func MakeClient() *twitterClient {
 	return &twitterClient{
 		client:   &http.Client{},
 		endpoint: "https://api.twitter.com",
-		token:    os.Getenv("TWITTER_BEARER_TOKEN"),
+		token:    os.Getenv("TWITTER_KEY"),
 	}
 }
 
