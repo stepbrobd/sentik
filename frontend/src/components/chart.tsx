@@ -1,4 +1,5 @@
-import Plot from "react-plotly.js";
+// import Plot from "react-plotly.js";
+const Plot = require("react-plotly.js");
 
 type Data = {
   Id: string;
