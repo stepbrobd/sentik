@@ -2,7 +2,14 @@
 import { useState, useEffect } from "react";
 import Plot from "react-plotly.js";
 import ChartInfo from "./chartInfo";
-const ChartComponent = () => {
+
+type Props = {
+    stockName: string;
+    stockRating: number;
+    numTweets: string;
+  };
+  
+const ChartComponent = (props:Props) => {
 
     var postiveVotes = [1, 2, 4, 10]
     var negativeVotes = [1, 5, 6, 9]
