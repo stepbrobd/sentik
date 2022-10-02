@@ -1,10 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
 
 @layer base {
   * {
     box-sizing: border-box;
+    font-family: "Nunito-Sans", sans-serif;
+    letter-spacing: -0.065em;
+    line-height: 10px;
   }
 
   a {
@@ -13,6 +17,16 @@
 
   a:hover {
     text-decoration: underline;
+  }
+
+  ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+
+  .font-sans {
+    font-family: sans-serif;
   }
 }
 
