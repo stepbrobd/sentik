@@ -96,17 +96,19 @@ const Content = ({ children }: Props) => {
                     <div className="flex flex-shrink-0 items-center px-4">
                       <img
                         className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                        src="https://twitic.stepbrobd.com/logo-32.png"
                         alt="Your Company"
                       />
                     </div>
-                    <h1 className="mt-5 px-2 text-2xl font-black">Tickers</h1>
+
+                    <h1 className="mt-5 px-2 text-2xl font-black">Search History: </h1>
+
                     <nav className="mt-5 space-y-1 px-2">
                       {history.map((item) => (
                         <Link href={item.href} key={item.name}>
                           <a
                             key={item.name}
-                            className={classNames(  
+                            className={classNames(
                               item.current
                                 ? "bg-gray-100 text-gray-900"
                                 : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
@@ -135,12 +137,14 @@ const Content = ({ children }: Props) => {
             <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
               <div className="flex flex-shrink-0 items-center px-4">
                 <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt="Your Company"
+                  className="h-8 w-auto mb-4"
+                  src="https://twitic.stepbrobd.com/logo-32.png"
+                  alt="Sentik-Stocks logo"
                 />
               </div>
-              <h1 className="mt-5 px-2 text-3xl font-black">Tickers</h1>
+
+              <h1 className="mt-5 pb-1 px-2 text-2xl font-black">Search History: </h1>
+
               <nav className="mt-5 flex-1 space-y-1 bg-white px-2">
                 {history.map((item) => (
                       <Link href={item.href} key={item.name}>
@@ -178,7 +182,7 @@ const Content = ({ children }: Props) => {
               <div className="z-10 w-full rounded-lg bg-[#84367C] px-8 py-10 text-white">
               <Year />
 
-              <h1 className="text-white font-bold flex items-center mt-4 mb-4 justify-between text-2xl leading-4">
+              <h1 className="tracking-normal text-white font-bold flex items-center mt-4 mb-4 justify-between text-2xl leading-4">
               <span>From: Twitter</span>
               <span>To: <b className="text-yellow-500">You</b></span>
               </h1>
@@ -187,7 +191,7 @@ const Content = ({ children }: Props) => {
               <span> <b className="text-yellow-500">LIVE</b> stock sentiment report</span>
               </h2>
 
-              <p className="font-light mt-10 mb-5 leading-4 text-white">
+              <p className="font-light tracking-wide mt-10 mb-5 leading-4 text-white">
                 <span>We get you </span>
                 <span>money advice</span>
                 <span> and save you the only non-monetary currency: </span>

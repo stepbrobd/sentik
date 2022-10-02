@@ -39,7 +39,8 @@ const Ticker = () => {
       />
 
 
-        <h1 className="mt-40 pt-8 text-center text-4xl text-black leading-4">Tweets</h1>
+      <div className="bg-white pl-4 pr-6 rounded-2xl mt-40">
+      <h1 className="pt-6 pb-4 tracking-normal text-center text-2xl text-bold leading-6">Tweets</h1>
 
       <table className="min-w-full max-w-full divide-y divide-gray-300 rounded-full pr-10 pl-10">
         <thead className="bg-yellow-400">
@@ -89,6 +90,7 @@ const Ticker = () => {
               ))}
         </tbody>
       </table>
+      </div>
     </>
   );
 };
