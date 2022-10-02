@@ -9,7 +9,7 @@ type Props = {
 const ChartInfo = (props: Props) => {
   //Putting the Amount of stairs
 
-  const list = [];
+  var list = [];
   for (var i = 0; i < props.stockRating; i++) {
     list.push(
       <li className="h-[24px] w-[24px]">
@@ -31,10 +31,5 @@ const ChartInfo = (props: Props) => {
     </>
   );
 };
-
-//export default function ChartInfo({stockName}, {Rating}, Votes})
-//{
-
-//}
 
 export default ChartInfo;
