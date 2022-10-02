@@ -4,9 +4,9 @@ const Year = () => {
   const currentTime = () =>
     new Date().toLocaleString("en-US", {
       hour12: false,
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
     });
   const [time, setTime] = useState(currentTime);
   useEffect(() => {
