@@ -30,7 +30,6 @@ const Content = ({ children }: Props) => {
 
   useEffect(() => {
     const { ticker } = router.query;
-    console.log(ticker)
     setHistory(
       history.map((item) => {
         item.current = (item.name == ticker)
@@ -191,13 +190,13 @@ const Content = ({ children }: Props) => {
                 <span> and save you the only non-monetary currency: </span>
                 <span className="text-yellow-500"> your time</span>
               </p>
-                  <div className="flex flex-row justify-end -mb-6">
-                    <div className="mt-1 text-black">
+                  <div className="flex flex-row justify-center -mb-6 md:grid-cols-3">
+                    <div className="mb-2 text-black">
                       <input
                         type="text"
                         name="ticker"
                         id="ticker"
-                        className="text-black bg-yellow-400 border-color block h-9 rounded-md"
+                        className="text-black bg-yellow-400 border-color block h-10 rounded-md"
                         placeholder="Select a Stock      "
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
