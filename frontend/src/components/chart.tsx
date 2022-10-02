@@ -83,15 +83,16 @@ const ChartComponent = (props:Props) => {
 
     {isLoading ? (
         <p> ...Loading </p>
-    ) : data ? (
-        data.data.map((tweet) => {
-            //Generate graph data from Tweets
-        })
-        <Plot
-            data={chartData}
-            layout={{ width: 320, height: 240, title: "Stock Name Here" }}
-        />
-    )
+      ) : data ? (
+          data.data.map((tweet) => {
+              //Generate graph data from Tweets
+          })
+          <Plot
+              data={chartData}
+              layout={{ width: 320, height: 240, title: "Stock Name Here" }}
+          />
+      )
+    }
 
     <ChartInfo stockName={stockName} stockRating={stockRating} numTweets = {numTweets}/>
        </>
