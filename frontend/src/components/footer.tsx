@@ -35,17 +35,14 @@ const Footer = () => {
 
   return (
     <footer
-      className="light-mode-border-color dark:dark-mode-border-color flex items-center justify-center border-t-[1px] py-5"
+      className="flex items-center justify-center border-t-[1px] py-5"
       aria-label="Footer"
     >
       <div className="mx-3.5 max-w-3xl space-y-5 overflow-hidden xl:mx-0">
         <nav className="flex flex-wrap items-center justify-center pt-2">
           {navigation.main.map((item) => (
             <Link key={item.name} href={item.href}>
-              <a
-                href={item.href}
-                className="light-mode-link-color dark:dark-mode-link-color px-5 py-2 text-sm"
-              >
+              <a href={item.href} className="link-color px-5 py-2 text-sm">
                 {item.name}
               </a>
             </Link>
@@ -96,7 +93,7 @@ const Footer = () => {
           Images generated with OpenAI DALL·E are subject to OpenAI DALL·E
           {"'s "}
           <a
-            className="light-mode-link-color dark:dark-mode-link-color"
+            className="link-color dark:dark-mode-link-color"
             href="https://labs.openai.com/policies/terms"
             rel="noopener noreferrer"
             target="_blank"
@@ -109,7 +106,7 @@ const Footer = () => {
         <p className="text-center text-sm">
           User interactions are tracked with{" "}
           <a
-            className="light-mode-link-color dark:dark-mode-link-color"
+            className="link-color dark:dark-mode-link-color"
             href="https://heap.io"
             rel="noopener noreferrer"
             target="_blank"
@@ -118,7 +115,7 @@ const Footer = () => {
           </a>{" "}
           and{" "}
           <a
-            className="light-mode-link-color dark:dark-mode-link-color"
+            className="link-color dark:dark-mode-link-color"
             href="https://plausible.io"
             rel="noopener noreferrer"
             target="_blank"

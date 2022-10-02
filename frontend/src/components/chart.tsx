@@ -33,8 +33,8 @@ const ChartComponent = (props:Props) => {
 
     //
 
-    var stockName = " Apple"
-    var stockRating = 4
+    var stockName = "Apple"
+    var stockRating = 5
     var numTweets = "35"
     var chartData : any = []
 //   var chartData: any = [
