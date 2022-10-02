@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 import Meta from "../components/meta";
 import Positive from "../components/positivesentiment";
 import Negative from "../components/negativesentiment";
-
+import dynamic from "next/dynamic";
+const Chart: any = dynamic(import("../components/chart"), {
+  ssr: false
+})
 
 type Data = {
   Id: string;
@@ -40,63 +43,62 @@ const Ticker = () => {
         keywords="HackMIT, HackMIT 2022, Sentik, Twitter, Stocks"
         slug="/"
       />
+      {loading ? null : <Chart data={data} />}
+      <div className="bg-white pl-4 pr-6 rounded-2xl pt-8">
+        <h1 className="pt-6 pb-4 tracking-normal text-center text-2xl text-bold leading-6">Tweets</h1>
 
-
-      <div className="bg-white pl-4 pr-6 rounded-2xl mt-40">
-      <h1 className="pt-6 pb-4 tracking-normal text-center text-2xl text-bold leading-6">Tweets</h1>
-
-      <table className="min-w-full max-w-full divide-y divide-gray-300 rounded-full pr-10 pl-10">
-        <thead className="bg-yellow-400">
-          <tr className="divide-x divide-gray-200">
-            <th
-              scope="col"
-              className="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-black sm:pl-6"
-            >
-              Stock
-            </th>
-            <th
-              scope="col"
-              className="px-4 py-3.5 text-left text-sm font-semibold text-gray-900"
-            >
-              Tweet
-            </th>
-            <th
-              scope="col"
-              className="px-4 py-3.5 text-left text-sm font-semibold text-gray-900"
-            >
-              Time
-            </th>
-            <th
-              scope="col"
-              className="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pr-6"
-            >
-              Sentiment
-            </th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-gray-200 bg-white">
-          {loading ? null : data.map((item) => (
-                <tr key={item.Id} className="divide-x divide-gray-200">
-                  <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
-                    {ticker}
-                  </td>
-                  <td className="whitespace-wrap p-4 text-sm text-gray-500"> <span> " </span>
-                    {item.Content} <span> " </span>
-                  </td>
-                  <td className="whitespace-wrap p-4 text-sm text-gray-500">
-                    {item.Date}
-                  </td>
-                  <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-6">
-                   {item.Sent === "positive" ? (
-                     <Positive/>
-                   ):(
-                     <Negative/>
-                   )}
-                  </td>
-                </tr>
-              ))}
-        </tbody>
-      </table>
+        <table className="min-w-full max-w-full divide-y divide-gray-300 rounded-full pr-10 pl-10">
+          <thead className="bg-yellow-400">
+            <tr className="divide-x divide-gray-200">
+              <th
+                scope="col"
+                className="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-black sm:pl-6"
+              >
+                Stock
+              </th>
+              <th
+                scope="col"
+                className="px-4 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                Tweet
+              </th>
+              <th
+                scope="col"
+                className="px-4 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                Time
+              </th>
+              <th
+                scope="col"
+                className="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pr-6"
+              >
+                Sentiment
+              </th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200 bg-white">
+            {loading ? null : data.map((item) => (
+              <tr key={item.Id} className="divide-x divide-gray-200">
+                <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
+                  {ticker}
+                </td>
+                <td className="whitespace-wrap p-4 text-sm text-gray-500"> <span> " </span>
+                  {item.Content} <span> " </span>
+                </td>
+                <td className="whitespace-wrap p-4 text-sm text-gray-500">
+                  {item.Date}
+                </td>
+                <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-6">
+                  {item.Sent === "positive" ? (
+                    <Positive />
+                  ) : (
+                    <Negative />
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );
