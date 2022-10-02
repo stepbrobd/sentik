@@ -1,4 +1,4 @@
-import { ReactNode, Fragment, useState } from "react";
+import { ReactNode, Fragment, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Footer from "./footer";
 import { Dialog, Transition } from "@headlessui/react";
@@ -26,6 +26,17 @@ const Content = ({ children }: Props) => {
     { name: "DIA", href: "/DIA", current: false },
     { name: "DAL", href: "/DAL", current: false },
   ]);
+
+  useEffect(() => {
+    const { ticker } = router.query;
+    console.log(ticker)
+    setHistory(
+      history.map((item) => {
+        item.current = (item.name == ticker)
+        return item
+      })
+    )
+  }, [router.query]);
 
   return (
     <>
@@ -90,13 +101,17 @@ const Content = ({ children }: Props) => {
                         alt="Your Company"
                       />
                     </div>
+<<<<<<< HEAD
+                    <h1 className="mt-5 px-2 text-2xl font-black">Tickers</h1>
+=======
                     <h1 className="mt-5 px-2 text-2xl font-black">Search History: </h1>
+>>>>>>> 86e726b935cc61154402e6b0a5ce1d591d3ef609
                     <nav className="mt-5 space-y-1 px-2">
                       {history.map((item) => (
                         <Link href={item.href} key={item.name}>
                           <a
                             key={item.name}
-                            className={classNames(
+                            className={classNames(  
                               item.current
                                 ? "bg-gray-100 text-gray-900"
                                 : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
@@ -130,19 +145,23 @@ const Content = ({ children }: Props) => {
                   alt="Your Company"
                 />
               </div>
+<<<<<<< HEAD
+              <h1 className="mt-5 px-2 text-3xl font-black">Tickers</h1>
+=======
               <h1 className="mt-5 pb-1 px-2 text-2xl font-black">Search History: </h1>
+>>>>>>> 86e726b935cc61154402e6b0a5ce1d591d3ef609
               <nav className="mt-5 flex-1 space-y-1 bg-white px-2">
                 {history.map((item) => (
-                  <Link href={item.href} key={item.name}>
-                    <a
-                      key={item.name}
-                      className={classNames(
-                        item.current
-                          ? "bg-gray-100 text-gray-900"
-                          : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-                        "group flex items-center rounded-md px-2 py-2 text-sm font-medium"
-                      )}
-                    >
+                      <Link href={item.href} key={item.name}>
+                      <a
+                        key={item.name}
+                        className={classNames(
+                          item.current
+                            ? "bg-gray-100 text-gray-900"
+                            : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                          "group flex items-center rounded-md px-2 py-2 text-sm font-medium"
+                        )}
+                      >
                       {item.name}
                     </a>
                   </Link>
@@ -196,11 +215,13 @@ const Content = ({ children }: Props) => {
                         onKeyUp={(e) => {
                           if (e.key === "Enter") {
                             router.push(`/${input}`);
-                            history.push({
-                              name: input,
-                              href: `/${input}`,
-                              current: true,
-                            });
+                            if (history.filter((item) => item.name == input).length == 0){
+                              history.push({
+                                name: input,
+                                href: `/${input}`,
+                                current: true,
+                              });
+                            }
                           }
                         }}
                       />
