@@ -1,23 +1,29 @@
-
-
 //hi@stepbrobd.com
 
-type Props = {
-    tenQueriedList : any
-  };
-  
-  const TwitterTable = (props:Props) =>{
-      var tabCount = props.tenQueriedList.length
+import TwitterTab from "./twitterTabs";
 
-      var tenTabList = 
-    
-    //Iterate and create x amount of tabs given stock info
-    return (
-        <>
-        {props.tenQueriedList}
-    </>
-    );
+type Props = {
+  tenQueriedList: any;
 };
 
+const TwitterTable = (props: Props) => {
+  var tabCount = props.tenQueriedList.length;
+
+  var tabList: any = [];
+  props.tenQueriedList.map((query: any) =>
+    tabList.push(
+      <TwitterTab
+        uid={query.id}
+        stockName={query.stockName}
+        tweet={query.Content}
+        dateTime={query.Date}
+        sentiment={query.Sent}
+      />
+    )
+  );
+
+  //Iterate and create x amount of tabs given stock info
+  return <>{tabList}</>;
+};
 
 export default TwitterTable;
