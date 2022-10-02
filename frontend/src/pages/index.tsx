@@ -1,6 +1,7 @@
 import Hero from "../components/hero";
 import Meta from "../components/meta";
 import dynamic from "next/dynamic";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query"
 import TwitterTable from "../components/twitterTable";
 const Chart: any = dynamic(import("../components/chart"), {
   ssr: false,
@@ -29,8 +30,9 @@ const Index = () => {
       */}
 
     //take in info
-
-
+var serverSite = "localhost:8080/tickers/"
+var inputStock = ""
+const queryClient = new QueryClient();
     //Do get request query
     var QueryList = [];
     for(var i = 0; i < 15; i++)
@@ -66,7 +68,6 @@ const Index = () => {
         slug="/"
       />
 
-      <h1>Sample Plots below</h1>
 
       {/*     <ChartInfo stockName={stockName} stockRating={stockRating} numTweets = {numTweets}/> */}
       {/* 
@@ -79,10 +80,10 @@ const Index = () => {
     };
 */}
 
-
+    <QueryClientProvider client={queryClient}>
       <Hero />
-      <Chart stockName={stockName} stockRating={stockRating} numTweets = {numTweets} />
-      <TwitterTable tenQueriedList={tenQueriedList} />
+      <Home></Home>
+    </QueryClientProvider>
     </>
   );
 };
