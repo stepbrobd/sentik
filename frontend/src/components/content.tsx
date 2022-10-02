@@ -179,14 +179,14 @@ const Content = ({ children }: Props) => {
                 <div className="z-10 w-full rounded-lg bg-[#84367C] px-8 py-10 text-white">
                   <Year />
 
-                  <h1 className="mt-4 mb-4 flex items-center justify-between text-2xl font-bold leading-4 tracking-normal text-white">
+                  <h1 className="sm:text-md mt-4 mb-4 flex items-center justify-between text-2xl font-bold leading-4 tracking-normal text-white">
                     <span>From: Twitter</span>
                     <span>
                       To: <b className="text-yellow-500">You</b>
                     </span>
                   </h1>
 
-                  <h2 className="mt-4 flex items-center justify-between text-2xl font-bold tracking-normal text-white">
+                  <h2 className="sm:text-md mt-4 flex items-center justify-between text-2xl font-bold tracking-normal text-white">
                     <span>
                       {" "}
                       <b className="text-yellow-500">LIVE</b> stock sentiment
