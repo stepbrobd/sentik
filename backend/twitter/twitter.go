@@ -98,13 +98,16 @@ func (twitter *TwitterClient) GetUserTweetsByID(id string) ([]interface{}, error
 }
 
 func (twitter *TwitterClient) SearchRecent(keyword string, count int) ([]interface{}, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf("%v/2/tweets/search/recent?query=%v&max_results=%v", twitter.endpoint, keyword, count), nil)
+	query := fmt.Sprintf("%v/2/tweets/search/recent?query=%v%v&max_results=%v", twitter.endpoint, "lang%3Aen%20", keyword, count)
+	req, err := http.NewRequest("GET", query, nil)
 	if err != nil {
+		log.Printf("Error Fetching Twitter: %v", err)
 		return nil, err
 	}
 
 	res, err := twitter.sendRequest(req)
 	if err != nil {
+		log.Printf("Error Sending: %v", err)
 		return nil, err
 	}
 
@@ -112,12 +115,14 @@ func (twitter *TwitterClient) SearchRecent(keyword string, count int) ([]interfa
 
 	content, err := io.ReadAll(res.Body)
 	if err != nil {
+		log.Printf("Error Reading: %v", err)
 		return nil, err
 	}
 
 	object := make(map[string]interface{})
 	err = json.Unmarshal(content, &object)
 	if err != nil {
+		log.Printf("Error UnMarshalling: %v", err)
 		return nil, err
 	}
 
