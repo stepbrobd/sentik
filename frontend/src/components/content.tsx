@@ -184,20 +184,20 @@ const Content = ({ children }: Props) => {
               <span> <b className="text-yellow-500">LIVE</b> stock sentiment report</span>
               </h2>
 
-              <p className="font-light tracking-wide mt-10 mb-5 leading-4 text-white">
+              <p className="font-light text-sm tracking-wide mt-5 mb-5 leading-4 text-white">
                 <span>We get you </span>
                 <span>money advice</span>
                 <span> and save you the only non-monetary currency: </span>
                 <span className="text-yellow-500"> your time</span>
               </p>
-                  <div className="flex flex-row justify-center -mb-6 md:grid-cols-3">
+                  <div className="mt-20 flex flex-row justify-center -mb-6 md:grid-cols-3">
                     <div className="mb-2 text-black">
                       <input
                         type="text"
                         name="ticker"
                         id="ticker"
                         className="text-black bg-yellow-400 border-color block h-10 rounded-md"
-                        placeholder="Select a Stock      "
+                        placeholder="Search a stock      "
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         onKeyUp={(e) => {
