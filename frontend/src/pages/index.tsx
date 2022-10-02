@@ -4,10 +4,10 @@ const Index = () => {
   return (
     <>
       <Meta
-        title="TwiTick - HackMIT 2022"
-        description="TwiTick - a HackMIT 2022 project"
+        title="Sentik-Stocks - HackMIT 2022"
+        description="Sentik-Stocks - a HackMIT 2022 project"
         image="/404.webp"
-        keywords="HackMIT, HackMIT 2022, TwiTick, Twitter, Stocks"
+        keywords="HackMIT, HackMIT 2022, Sentik-Stocks, Twitter, Stocks"
         slug="/"
       />
     </>

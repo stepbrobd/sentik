@@ -90,7 +90,7 @@ const Content = ({ children }: Props) => {
                         alt="Your Company"
                       />
                     </div>
-                    <h1 className="mt-5 px-2 text-2xl font-black">History</h1>
+                    <h1 className="mt-5 px-2 text-2xl font-black">Search History: </h1>
                     <nav className="mt-5 space-y-1 px-2">
                       {history.map((item) => (
                         <Link href={item.href} key={item.name}>
@@ -130,7 +130,7 @@ const Content = ({ children }: Props) => {
                   alt="Your Company"
                 />
               </div>
-              <h1 className="mt-5 px-2 text-3xl font-black">History</h1>
+              <h1 className="mt-5 pb-1 px-2 text-2xl font-black">Search History: </h1>
               <nav className="mt-5 flex-1 space-y-1 bg-white px-2">
                 {history.map((item) => (
                   <Link href={item.href} key={item.name}>
@@ -192,14 +192,14 @@ const Content = ({ children }: Props) => {
                     <span>.</span>
                   </p>
 
-                  <div className="flex flex-col items-center justify-center">
-                    <div className="mt-1">
+                  <div className="flex flex-row justify-end">
+                    <div className="mt-1 text-black">
                       <input
                         type="text"
                         name="ticker"
                         id="ticker"
-                        className="border-color block h-9 w-24 rounded-md"
-                        placeholder="Ticker"
+                        className="text-black bg-yellow-400 border-color block h-9 rounded-md"
+                        placeholder="Select a Stock      "
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         onKeyUp={(e) => {
