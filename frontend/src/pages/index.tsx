@@ -68,21 +68,21 @@ const Index = () => {
 
       <h1>Sample Plots below</h1>
 
-      <Chart stockName={stockName} stockRating={stockRating} numTweets = {numTweets} />
       {/*     <ChartInfo stockName={stockName} stockRating={stockRating} numTweets = {numTweets}/> */}
       {/* 
     type Props = {
-    stockName: string;
-    Tweet: string;
-    dateTime: string;
-    sentiment: boolean;
-    numTweets: string;
-  };
-  */}
+        stockName: string;
+        Tweet: string;
+        dateTime: string;
+        sentiment: boolean;
+        numTweets: string;
+    };
+*/}
 
 
-      <TwitterTable tenQueriedList={tenQueriedList} />
       <Hero />
+      <Chart stockName={stockName} stockRating={stockRating} numTweets = {numTweets} />
+      <TwitterTable tenQueriedList={tenQueriedList} />
     </>
   );
 };
