@@ -1,5 +1,5 @@
 import Head from "next/head";
-import logo from './../../public/logo.png';
+//import logo from './../../public/logo.png';
 
 type Props = {
   title: string;
@@ -10,21 +10,21 @@ type Props = {
 };
 
 const Meta = (props: Props) => {
-  render(){
   return (
     <Head>
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180">
-       <image src={logo}/>
-      </link>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="180x180"
+      href="https://twitic.stepbrobd.com/favicon-16x16.png"
+    />
 
-      <link>
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        <image src={logo}/>
-       </link>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://twitic.stepbrobd.com/favicon-16x16.png"
+    />
 
       <link
         rel="icon"
@@ -63,7 +63,7 @@ const Meta = (props: Props) => {
       <meta name="twitter:site" content="@HackMIT" />
       <meta name="twitter:creator" content="@HackMIT" />
     </Head>
-  );};
+  );
 };
 
 export default Meta;
