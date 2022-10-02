@@ -5,7 +5,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Year from "./year";
 import Link from "next/link";
-import Logo from "../components/logo"
+import Logo from "../components/logo";
 
 type Props = {
   children?: ReactNode;
@@ -32,11 +32,11 @@ const Content = ({ children }: Props) => {
     const { ticker } = router.query;
     setHistory(
       history.map((item) => {
-        item.current = (item.name == ticker)
-        return item
+        item.current = item.name == ticker;
+        return item;
       })
-    )
-  }, [router.query]);
+    );
+  }, [history, router.query]);
 
   return (
     <>
@@ -98,7 +98,9 @@ const Content = ({ children }: Props) => {
                       <Logo />
                     </div>
 
-                    <h1 className="mt-5 px-2 text-2xl font-black">Search History: </h1>
+                    <h1 className="mt-5 px-2 text-2xl font-black">
+                      Search History:{" "}
+                    </h1>
 
                     <nav className="mt-5 space-y-1 px-2">
                       {history.map((item) => (
@@ -136,20 +138,22 @@ const Content = ({ children }: Props) => {
                 <Logo />
               </div>
 
-              <h1 className="mt-40 pb-1 px-2 text-2xl font-black">Search History: </h1>
+              <h1 className="mt-40 px-2 pb-1 text-2xl font-black">
+                Search History:{" "}
+              </h1>
 
               <nav className="mt-2 flex-1 space-y-1 bg-white px-2">
                 {history.map((item) => (
-                      <Link href={item.href} key={item.name}>
-                      <a
-                        key={item.name}
-                        className={classNames(
-                          item.current
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-                          "group flex items-center rounded-md px-2 py-2 text-sm font-small"
-                        )}
-                      >
+                  <Link href={item.href} key={item.name}>
+                    <a
+                      key={item.name}
+                      className={classNames(
+                        item.current
+                          ? "bg-gray-100 text-gray-900"
+                          : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                        "font-small group flex items-center rounded-md px-2 py-2 text-sm"
+                      )}
+                    >
                       {item.name}
                     </a>
                   </Link>
@@ -172,38 +176,47 @@ const Content = ({ children }: Props) => {
           <main className="flex-1">
             <div className="py-6">
               <div className="mx-auto max-w-7xl space-y-4 px-4 sm:px-6 md:px-8">
-              <div className="z-10 w-full rounded-lg bg-[#84367C] px-8 py-10 text-white">
-              <Year />
+                <div className="z-10 w-full rounded-lg bg-[#84367C] px-8 py-10 text-white">
+                  <Year />
 
-              <h1 className="tracking-normal text-white font-bold flex items-center mt-4 mb-4 justify-between text-2xl leading-4">
-              <span>From: Twitter</span>
-              <span>To: <b className="text-yellow-500">You</b></span>
-              </h1>
+                  <h1 className="mt-4 mb-4 flex items-center justify-between text-2xl font-bold leading-4 tracking-normal text-white">
+                    <span>From: Twitter</span>
+                    <span>
+                      To: <b className="text-yellow-500">You</b>
+                    </span>
+                  </h1>
 
-              <h2 className="tracking-normal font-bold text-white mt-4 text-2xl flex items-center justify-between">
-              <span> <b className="text-yellow-500">LIVE</b> stock sentiment report</span>
-              </h2>
+                  <h2 className="mt-4 flex items-center justify-between text-2xl font-bold tracking-normal text-white">
+                    <span>
+                      {" "}
+                      <b className="text-yellow-500">LIVE</b> stock sentiment
+                      report
+                    </span>
+                  </h2>
 
-              <p className="font-light text-sm tracking-wide mt-5 mb-5 leading-4 text-white">
-                <span>We get you </span>
-                <span>money advice</span>
-                <span> and save you the only non-monetary currency: </span>
-                <span className="text-yellow-500"> your time</span>
-              </p>
-                  <div className="mt-20 flex flex-row justify-center -mb-6 md:grid-cols-3">
+                  <p className="mt-5 mb-5 text-sm font-light leading-4 tracking-wide text-white">
+                    <span>We get you </span>
+                    <span>money advice</span>
+                    <span> and save you the only non-monetary currency: </span>
+                    <span className="text-yellow-500"> your time</span>
+                  </p>
+                  <div className="mt-20 -mb-6 flex flex-row justify-center md:grid-cols-3">
                     <div className="mb-2 text-black">
                       <input
                         type="text"
                         name="ticker"
                         id="ticker"
-                        className="text-black bg-yellow-400 border-color block h-10 rounded-md"
+                        className="border-color block h-10 rounded-md bg-yellow-400 text-black"
                         placeholder="Search a stock      "
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         onKeyUp={(e) => {
                           if (e.key === "Enter") {
                             router.push(`/${input}`);
-                            if (history.filter((item) => item.name == input).length == 0){
+                            if (
+                              history.filter((item) => item.name == input)
+                                .length == 0
+                            ) {
                               history.push({
                                 name: input,
                                 href: `/${input}`,

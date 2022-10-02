@@ -5,8 +5,8 @@ import Positive from "../components/positivesentiment";
 import Negative from "../components/negativesentiment";
 import dynamic from "next/dynamic";
 const Chart: any = dynamic(import("../components/chart"), {
-  ssr: false
-})
+  ssr: false,
+});
 
 type Data = {
   Id: string;
@@ -33,7 +33,6 @@ const Ticker = () => {
     }
   }, [ticker]);
 
-
   return (
     <>
       <Meta
@@ -44,8 +43,10 @@ const Ticker = () => {
         slug="/"
       />
       {loading ? null : <Chart data={data} />}
-      <div className="bg-white pl-4 pr-6 rounded-2xl pt-8">
-        <h1 className="pt-6 pb-4 tracking-normal text-center text-2xl text-bold leading-6">Tweets</h1>
+      <div className="rounded-2xl bg-white pl-4 pr-6 pt-8">
+        <h1 className="text-bold pt-6 pb-4 text-center text-2xl leading-6 tracking-normal">
+          Tweets
+        </h1>
 
         <table className="min-w-full max-w-full divide-y divide-gray-300 rounded-full pr-10 pl-10">
           <thead className="bg-yellow-400">
@@ -77,26 +78,26 @@ const Ticker = () => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
-            {loading ? null : data.map((item) => (
-              <tr key={item.Id} className="divide-x divide-gray-200">
-                <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
-                  {ticker}
-                </td>
-                <td className="whitespace-wrap p-4 text-sm text-gray-500"> <span> " </span>
-                  {item.Content} <span> " </span>
-                </td>
-                <td className="whitespace-wrap p-4 text-sm text-gray-500">
-                  {item.Date}
-                </td>
-                <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-6">
-                  {item.Sent === "positive" ? (
-                    <Positive />
-                  ) : (
-                    <Negative />
-                  )}
-                </td>
-              </tr>
-            ))}
+            {loading
+              ? null
+              : data.map((item) => (
+                  <tr key={item.Id} className="divide-x divide-gray-200">
+                    <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
+                      {ticker}
+                    </td>
+                    <td className="whitespace-wrap p-4 text-sm text-gray-500">
+                      {" "}
+                      <span> &quot; </span>
+                      {item.Content} <span> &quot; </span>
+                    </td>
+                    <td className="whitespace-wrap p-4 text-sm text-gray-500">
+                      {item.Date}
+                    </td>
+                    <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-6">
+                      {item.Sent === "positive" ? <Positive /> : <Negative />}
+                    </td>
+                  </tr>
+                ))}
           </tbody>
         </table>
       </div>
