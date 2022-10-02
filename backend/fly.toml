@@ -20,7 +20,7 @@ internal_port = 8080
 protocol = "tcp"
 
 [[services.ports]]
-handlers = ["http"]
+handlers = ["http", "tls"]
 port = 8080
 
 [[services.tcp_checks]]
