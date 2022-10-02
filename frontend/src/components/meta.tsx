@@ -16,28 +16,28 @@ const Meta = (props: Props) => {
       rel="icon"
       type="image/png"
       sizes="180x180"
-      href="https://twitic.stepbrobd.com/logo-180.png"
+      href="/logo-180.png"
     />
 
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="https://twitic.stepbrobd.com/logo-32.png"
+      href="/logo-32.png"
     />
 
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="https://twitic.stepbrobd.com/logo-16.png"
+        href="/logo-16.png"
       />
 
       <link
         rel="shortcut icon"
-        href="https://twitic.stepbrobd.com/favicon.ico"
+        href="/favicon.ico"
       />
-      
+
       <title>{props.title}</title>
       <meta name="description" content={props.description} />
       <meta name="keywords" content={props.keywords} />
