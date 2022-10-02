@@ -36,7 +36,7 @@ const Content = ({ children }: Props) => {
         return item;
       })
     );
-  }, [history, router.query]);
+  }, [router.query]);
 
   return (
     <>
