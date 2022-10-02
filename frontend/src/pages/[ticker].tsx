@@ -24,7 +24,7 @@ const Ticker = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (ticker) {
-      fetch(`http://localhost:8080/tickers/${ticker}`)
+      fetch(`http://com-stepbrobd-hackmit.fly.dev:8080/tickers/${ticker}`)
         .then((res) => res.json())
         .then((res) => {
           setData(res.data);

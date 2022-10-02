@@ -7,8 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-
-	dotEnv "github.com/joho/godotenv"
+	// dotEnv "github.com/joho/godotenv"
 )
 
 type TwitterClient struct {
@@ -18,10 +17,10 @@ type TwitterClient struct {
 }
 
 func MakeClient() *TwitterClient {
-	err := dotEnv.Load("../.env.local")
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	// err := dotEnv.Load("../.env.local")
+	// if err != nil {
+	// 	log.Fatal("Error loading .env file")
+	// }
 	return &TwitterClient{
 		client:   &http.Client{},
 		endpoint: "https://api.twitter.com",
