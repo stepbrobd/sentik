@@ -101,7 +101,11 @@ const Content = ({ children }: Props) => {
                         alt="Your Company"
                       />
                     </div>
+<<<<<<< HEAD
                     <h1 className="mt-5 px-2 text-2xl font-black">Tickers</h1>
+=======
+                    <h1 className="mt-5 px-2 text-2xl font-black">Search History: </h1>
+>>>>>>> 86e726b935cc61154402e6b0a5ce1d591d3ef609
                     <nav className="mt-5 space-y-1 px-2">
                       {history.map((item) => (
                         <Link href={item.href} key={item.name}>
@@ -141,7 +145,11 @@ const Content = ({ children }: Props) => {
                   alt="Your Company"
                 />
               </div>
+<<<<<<< HEAD
               <h1 className="mt-5 px-2 text-3xl font-black">Tickers</h1>
+=======
+              <h1 className="mt-5 pb-1 px-2 text-2xl font-black">Search History: </h1>
+>>>>>>> 86e726b935cc61154402e6b0a5ce1d591d3ef609
               <nav className="mt-5 flex-1 space-y-1 bg-white px-2">
                 {history.map((item) => (
                       <Link href={item.href} key={item.name}>
@@ -176,41 +184,32 @@ const Content = ({ children }: Props) => {
           <main className="flex-1">
             <div className="py-6">
               <div className="mx-auto max-w-7xl space-y-4 px-4 sm:px-6 md:px-8">
-                <div className="z-10 w-full space-y-5 rounded-lg bg-[#84367C] px-8 py-10">
-                  <Year />
+              <div className="z-10 w-full rounded-lg bg-[#84367C] px-8 py-10 text-white">
+              <Year />
 
-                  <h1 className="flex items-center justify-between">
-                    <span className="text-3xl font-bold text-white">
-                      From: Twitter
-                    </span>
-                    <span className="text-3xl font-bold text-white">
-                      To: <b className="text-[#F5FA09]">You</b>
-                    </span>
-                  </h1>
+              <h1 className="text-white font-bold flex items-center mt-4 mb-4 justify-between text-2xl leading-4">
+              <span>From: Twitter</span>
+              <span>To: <b className="text-yellow-500">You</b></span>
+              </h1>
 
-                  <h2 className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-white">
-                      <b className="text-[#F5FA09]">LIVE</b> stock sentiment
-                      report
-                    </span>
-                  </h2>
+              <h2 className="tracking-normal font-bold text-white mt-4 text-2xl flex items-center justify-between">
+              <span> <b className="text-yellow-500">LIVE</b> stock sentiment report</span>
+              </h2>
 
-                  <p className="text-sm text-white">
-                    <span>We get you </span>
-                    <span>money advice</span>
-                    <span> and save you the only non-monetary currency: </span>
-                    <span className="text-[#F5FA09]"> your time</span>
-                    <span>.</span>
-                  </p>
-
-                  <div className="flex flex-col items-center justify-center">
-                    <div className="mt-1">
+              <p className="font-light mt-10 mb-5 leading-4 text-white">
+                <span>We get you </span>
+                <span>money advice</span>
+                <span> and save you the only non-monetary currency: </span>
+                <span className="text-yellow-500"> your time</span>
+              </p>
+                  <div className="flex flex-row justify-end -mb-6">
+                    <div className="mt-1 text-black">
                       <input
                         type="text"
                         name="ticker"
                         id="ticker"
-                        className="border-color block h-9 w-24 rounded-md"
-                        placeholder="Ticker"
+                        className="text-black bg-yellow-400 border-color block h-9 rounded-md"
+                        placeholder="Select a Stock      "
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         onKeyUp={(e) => {
