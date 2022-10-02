@@ -1,5 +1,5 @@
-// import Plot from "react-plotly.js";
-const Plot = require("react-plotly.js");
+import dynamic from "next/dynamic";
+const Plot = dynamic(import("react-plotly.js"), { ssr: false });
 
 type Data = {
   Id: string;
@@ -29,8 +29,6 @@ const ChartComponent = (props: Props) => {
 
   //gain positive & negative votes
   for (var i = 0; i < props.data.length; i++) {
-    console.log(props.data[i]);
-
     if (props.data[i].Sent === "positive") {
       pVotes++;
     } else if (props.data[i].Sent === "negative") {
