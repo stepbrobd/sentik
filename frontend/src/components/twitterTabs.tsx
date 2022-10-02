@@ -4,7 +4,11 @@
 import { isPropertySignature } from "typescript";
 
 type Props = {
-    qu
+    uid: number,
+    stockName: string;
+    tweet: string;
+    dateTime: string;
+    sentiment: boolean;
   };
 
 
