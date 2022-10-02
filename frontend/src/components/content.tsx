@@ -5,6 +5,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Year from "./year";
 import Link from "next/link";
+import Logo from "../components/logo"
 
 type Props = {
   children?: ReactNode;
@@ -95,11 +96,7 @@ const Content = ({ children }: Props) => {
                   </Transition.Child>
                   <div className="h-0 flex-1 overflow-y-auto pt-5 pb-4">
                     <div className="flex flex-shrink-0 items-center px-4">
-                      <img
-                        className="h-8 w-auto"
-                        src="https://twitic.stepbrobd.com/logo-32.png"
-                        alt="Your Company"
-                      />
+                      <Logo />
                     </div>
 
                     <h1 className="mt-5 px-2 text-2xl font-black">Search History: </h1>
@@ -137,16 +134,12 @@ const Content = ({ children }: Props) => {
           <div className="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white">
             <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
               <div className="flex flex-shrink-0 items-center px-4">
-                <img
-                  className="h-8 w-auto mb-4"
-                  src="https://twitic.stepbrobd.com/logo-32.png"
-                  alt="Sentik-Stocks logo"
-                />
+                <Logo />
               </div>
 
-              <h1 className="mt-5 pb-1 px-2 text-2xl font-black">Search History: </h1>
+              <h1 className="mt-40 pb-1 px-2 text-2xl font-black">Search History: </h1>
 
-              <nav className="mt-5 flex-1 space-y-1 bg-white px-2">
+              <nav className="mt-2 flex-1 space-y-1 bg-white px-2">
                 {history.map((item) => (
                       <Link href={item.href} key={item.name}>
                       <a
@@ -155,7 +148,7 @@ const Content = ({ children }: Props) => {
                           item.current
                             ? "bg-gray-100 text-gray-900"
                             : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-                          "group flex items-center rounded-md px-2 py-2 text-sm font-medium"
+                          "group flex items-center rounded-md px-2 py-2 text-sm font-small"
                         )}
                       >
                       {item.name}

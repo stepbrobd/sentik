@@ -2,6 +2,9 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Hero from "../components/hero";
 import Meta from "../components/meta";
+import Positive from "../components/positivesentiment";
+import Negative from "../components/negativesentiment";
+
 
 type Data = {
   Id: string;
@@ -27,6 +30,7 @@ const Ticker = () => {
         });
     }
   }, [ticker]);
+
 
   return (
     <>
@@ -86,7 +90,11 @@ const Ticker = () => {
                     {item.Date}
                   </td>
                   <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-6">
-                    {item.Sent}
+                   {item.Sent === "positive" ? (
+                     <Positive/>
+                   ):(
+                     <Negative/>
+                   )}
                   </td>
                 </tr>
               ))}
