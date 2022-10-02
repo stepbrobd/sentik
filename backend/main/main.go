@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/cdipaolo/sentiment"
 	"hackmit/twitter"
-	"hackmit/openai"
 	"github.com/gin-gonic/gin"
 )
 
@@ -24,27 +24,28 @@ type Tweet struct {
 
 type API struct {
 	twitter		*twitter.TwitterClient
-	openai		*openai.OpenAIClient
+	model		*sentiment.Models
 }
 
 func (api *API) fetchTweet(ticker string) []Tweet {
-	tweets, err := api.twitter.SearchRecent(ticker, 50)
+	tweets, err := api.twitter.SearchRecent(ticker, 100)
 	if err != nil {
 		log.Printf("Error fetching tweets for ticker: %v", ticker)
 		return nil
 	}
 
-	var texts = []string{}
-	for _, t := range tweets {
+	texts := make([]string, len(tweets))
+	sentiments := make([]string, len(tweets))
+	for i, t := range tweets {
 		if t != nil {
 			text := fmt.Sprint(t.(map[string]interface{})["text"])
-			//log.Printf("tweet: %v", text)
-			texts = append(texts, strings.ReplaceAll(text, "\n", " "))
+			texts[i] = text
+			if api.model.SentimentAnalysis(texts[i], sentiment.English).Score == 1 {
+				sentiments[i] = "positive"
+			} else {
+				sentiments[i] = "negative"
+			}
 		}
-	}
-	sentiments := api.openai.SentimentAnalysis(texts)
-	if sentiments == nil{
-		return nil
 	}
 
 	var res = []Tweet{}
@@ -74,9 +75,13 @@ func (api *API) getTickers(c *gin.Context) {
 
 func main() {
 	router := gin.Default()
+	model, err := sentiment.Restore()
+	if err != nil {
+		log.Print("Unable to restore Sentiment Analysis model")
+	}
 	api := API{
 		twitter: twitter.MakeClient(),
-		openai: openai.MakeClient(),
+		model: &model,
 	}
 	router.GET("/tickers/:tickers", api.getTickers)
 
