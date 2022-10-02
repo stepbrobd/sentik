@@ -18,7 +18,7 @@ const Year = () => {
 
   return (
     <div className="flex flex-row items-center justify-between">
-      <p className="text-sm" suppressHydrationWarning={true}>
+      <p className="text-sm text-neutral-200" suppressHydrationWarning={true}>
         {time}
       </p>
     </div>

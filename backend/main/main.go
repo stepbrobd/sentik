@@ -3,12 +3,13 @@ package main
 import (
 	"fmt"
 	"log"
-	"strings"
 	"net/http"
+	"strings"
 	"time"
 
-	"github.com/cdipaolo/sentiment"
 	"hackmit/twitter"
+
+	"github.com/cdipaolo/sentiment"
 	"github.com/gin-gonic/gin"
 )
 
@@ -23,8 +24,8 @@ type Tweet struct {
 }
 
 type API struct {
-	twitter		*twitter.TwitterClient
-	model		*sentiment.Models
+	twitter *twitter.TwitterClient
+	model   *sentiment.Models
 }
 
 func (api *API) fetchTweet(ticker string) []Tweet {
@@ -55,7 +56,7 @@ func (api *API) fetchTweet(ticker string) []Tweet {
 				Id:      fmt.Sprint(t.(map[string]interface{})["id"]),
 				Ticker:  ticker,
 				Content: texts[i],
-				Sent:	 sentiments[i],
+				Sent:    sentiments[i],
 				Date:    fmt.Sprint(time.Now().UTC()),
 			})
 		}
@@ -64,11 +65,12 @@ func (api *API) fetchTweet(ticker string) []Tweet {
 }
 
 func (api *API) getTickers(c *gin.Context) {
+	c.Header("Access-Control-Allow-Origin", "*")
 	tickers := strings.Split(c.Param("tickers"), ",")
 	res := make(Tickers)
 	for _, ticker := range tickers {
 		log.Printf("Fetching data for %v...", ticker)
-		res[ticker] = api.fetchTweet(ticker)
+		res["data"] = api.fetchTweet(ticker)
 	}
 	c.IndentedJSON(http.StatusOK, res)
 }
@@ -81,7 +83,7 @@ func main() {
 	}
 	api := API{
 		twitter: twitter.MakeClient(),
-		model: &model,
+		model:   &model,
 	}
 	router.GET("/tickers/:tickers", api.getTickers)
 
