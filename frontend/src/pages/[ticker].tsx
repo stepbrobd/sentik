@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Hero from "../components/hero";
 import Meta from "../components/meta";
 
 type Data = {
@@ -22,6 +21,7 @@ const Ticker = () => {
       fetch(`http://localhost:8080/tickers/${ticker}`)
         .then((res) => res.json())
         .then((res) => {
+          console.log(res.data[0])
           setData(res.data);
           setLoading(false);
         });
@@ -71,9 +71,7 @@ const Ticker = () => {
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200 bg-white">
-          {loading
-            ? null
-            : data.map((item) => (
+          {loading ? null : data.map((item) => (
                 <tr key={item.Id} className="divide-x divide-gray-200">
                   <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
                     {ticker}
