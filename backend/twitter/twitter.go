@@ -11,25 +11,25 @@ import (
 	dotEnv "github.com/joho/godotenv"
 )
 
-type twitterClient struct {
+type TwitterClient struct {
 	client   *http.Client
 	endpoint string
 	token    string
 }
 
-func MakeClient() *twitterClient {
+func MakeClient() *TwitterClient {
 	err := dotEnv.Load("../.env.local")
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
-	return &twitterClient{
+	return &TwitterClient{
 		client:   &http.Client{},
 		endpoint: "https://api.twitter.com",
 		token:    os.Getenv("TWITTER_KEY"),
 	}
 }
 
-func (twitter *twitterClient) sendRequest(req *http.Request) (*http.Response, error) {
+func (twitter *TwitterClient) sendRequest(req *http.Request) (*http.Response, error) {
 	req.Header.Add("Authorization", "Bearer "+twitter.token)
 
 	res, err := twitter.client.Do(req)
@@ -43,7 +43,7 @@ func (twitter *twitterClient) sendRequest(req *http.Request) (*http.Response, er
 	return res, nil
 }
 
-func (twitter *twitterClient) GetUserIDByUsername(username string) (string, error) {
+func (twitter *TwitterClient) GetUserIDByUsername(username string) (string, error) {
 	req, err := http.NewRequest("GET", twitter.endpoint+"/2/users/by/username/"+username, nil)
 	if err != nil {
 		return "", err
@@ -70,7 +70,7 @@ func (twitter *twitterClient) GetUserIDByUsername(username string) (string, erro
 	return object["data"].(map[string]interface{})["id"].(string), nil
 }
 
-func (twitter *twitterClient) GetUserTweetsByID(id string) ([]interface{}, error) {
+func (twitter *TwitterClient) GetUserTweetsByID(id string) ([]interface{}, error) {
 	req, err := http.NewRequest("GET", twitter.endpoint+"/2/users/"+id+"/tweets", nil)
 	if err != nil {
 		return nil, err
@@ -97,8 +97,8 @@ func (twitter *twitterClient) GetUserTweetsByID(id string) ([]interface{}, error
 	return object["data"].([]interface{}), nil
 }
 
-func (twitter *twitterClient) GetTrendingByTicker(keyword string) ([]interface{}, error) {
-	req, err := http.NewRequest("GET", twitter.endpoint+"/2/tweets/search/recent?query="+keyword+"&max_results=100", nil)
+func (twitter *TwitterClient) SearchRecent(keyword string, count int) ([]interface{}, error) {
+	req, err := http.NewRequest("GET", fmt.Sprintf("%v/2/tweets/search/recent?query=%v&max_results=%v", twitter.endpoint, keyword, count), nil)
 	if err != nil {
 		return nil, err
 	}
