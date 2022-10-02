@@ -1,4 +1,5 @@
 import Head from "next/head";
+//import logo from './../../public/logo.png';
 
 type Props = {
   title: string;
@@ -11,23 +12,27 @@ type Props = {
 const Meta = (props: Props) => {
   return (
     <Head>
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="https://twitic.stepbrobd.com/apple-touch-icon.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="https://twitic.stepbrobd.com/favicon-32x32.png"
-      />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="180x180"
+      href="https://twitic.stepbrobd.com/favicon-16x16.png"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://twitic.stepbrobd.com/favicon-16x16.png"
+    />
+
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
         href="https://twitic.stepbrobd.com/favicon-16x16.png"
       />
+
       <link
         rel="shortcut icon"
         href="https://twitic.stepbrobd.com/favicon.ico"
