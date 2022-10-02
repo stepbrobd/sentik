@@ -1,3 +1,4 @@
+import Hero from "../components/hero";
 import Meta from "../components/meta";
 import dynamic from "next/dynamic";
 import TwitterTable from "../components/twitterTable";
@@ -58,16 +59,14 @@ const Index = () => {
   return (
     <>
       <Meta
-        title="HackMIT-2022"
-        description="HackMIT Project from group Tabe#94"
+        title="TwiTick - HackMIT 2022"
+        description="TwiTick - a HackMIT 2022 project"
         image="/404.webp"
-        keywords="404, not found, error"
-        slug="/404"
+        keywords="HackMIT, HackMIT 2022, TwiTick, Twitter, Stocks"
+        slug="/"
       />
 
       <h1>Sample Plots below</h1>
-
-
 
       <Chart stockName={stockName} stockRating={stockRating} numTweets = {numTweets} />
       {/*     <ChartInfo stockName={stockName} stockRating={stockRating} numTweets = {numTweets}/> */}
@@ -83,6 +82,7 @@ const Index = () => {
 
 
       <TwitterTable tenQueriedList={tenQueriedList} />
+      <Hero />
     </>
   );
 };

@@ -14,21 +14,24 @@ const Meta = (props: Props) => {
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="https://yifei.md/apple-touch-icon.png"
+        href="https://twitic.stepbrobd.com/apple-touch-icon.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="https://yifei.md/favicon-32x32.png"
+        href="https://twitic.stepbrobd.com/favicon-32x32.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="https://yifei.md/favicon-16x16.png"
+        href="https://twitic.stepbrobd.com/favicon-16x16.png"
       />
-      <link rel="shortcut icon" href="https://yifei.md/favicon.ico" />
+      <link
+        rel="shortcut icon"
+        href="https://twitic.stepbrobd.com/favicon.ico"
+      />
       <title>{props.title}</title>
       <meta name="description" content={props.description} />
       <meta name="keywords" content={props.keywords} />
@@ -36,15 +39,24 @@ const Meta = (props: Props) => {
       <meta property="og:type" content="website" />
       <meta property="og:title" content={props.title} />
       <meta property="og:description" content={props.description} />
-      <meta property="og:url" content={"https://yifei.md" + props.slug} />
-      <meta property="og:image" content={"https://yifei.md" + props.image} />
+      <meta
+        property="og:url"
+        content={"https://twitic.stepbrobd.com" + props.slug}
+      />
+      <meta
+        property="og:image"
+        content={"https://twitic.stepbrobd.com" + props.image}
+      />
       <meta property="robots" content="index, follow" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:description" content={props.description} />
       <meta name="twitter:title" content={props.title} />
-      <meta name="twitter:image" content={"https://yifei.md" + props.image} />
-      <meta name="twitter:site" content="@StepBroBD" />
-      <meta name="twitter:creator" content="@StepBroBD" />
+      <meta
+        name="twitter:image"
+        content={"https://twitic.stepbrobd.com" + props.image}
+      />
+      <meta name="twitter:site" content="@HackMIT" />
+      <meta name="twitter:creator" content="@HackMIT" />
     </Head>
   );
 };
