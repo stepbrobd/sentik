@@ -38,18 +38,56 @@ const Ticker = () => {
         slug="/"
       />
 
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        data.map((item) => (
-          <div key={item.Id}>
-            <p>{ticker}</p>
-            <p>{item.Sent}</p>
-            <p>{item.Content}</p>
-            <p>{item.Date}</p>
-          </div>
-        ))
-      )}
+      <table className="min-w-full max-w-full divide-y divide-gray-300">
+        <thead className="bg-gray-50">
+          <tr className="divide-x divide-gray-200">
+            <th
+              scope="col"
+              className="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+            >
+              Ticker
+            </th>
+            <th
+              scope="col"
+              className="px-4 py-3.5 text-left text-sm font-semibold text-gray-900"
+            >
+              Tweet
+            </th>
+            <th
+              scope="col"
+              className="px-4 py-3.5 text-left text-sm font-semibold text-gray-900"
+            >
+              Time
+            </th>
+            <th
+              scope="col"
+              className="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pr-6"
+            >
+              Sentiment
+            </th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-200 bg-white">
+          {loading
+            ? null
+            : data.map((item) => (
+                <tr key={item.Id} className="divide-x divide-gray-200">
+                  <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
+                    {ticker}
+                  </td>
+                  <td className="whitespace-nowrap p-4 text-sm text-gray-500">
+                    {item.Content}
+                  </td>
+                  <td className="whitespace-nowrap p-4 text-sm text-gray-500">
+                    {item.Date}
+                  </td>
+                  <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-6">
+                    {item.Sent}
+                  </td>
+                </tr>
+              ))}
+        </tbody>
+      </table>
     </>
   );
 };
