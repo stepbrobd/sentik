@@ -129,8 +129,8 @@ const Footer = () => {
         </p>
 
         <p className="text-center text-sm">
-          Copyright &copy; {new Date().getFullYear()} Yifei Sun. All rights
-          reserved.
+          Copyright &copy; {new Date().getFullYear()} TwiTick for HackMIT 2022.
+          All rights reserved.
         </p>
 
         <a

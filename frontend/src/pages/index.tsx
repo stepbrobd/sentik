@@ -1,17 +1,18 @@
+import Hero from "../components/hero";
 import Meta from "../components/meta";
 
 const Index = () => {
   return (
     <>
       <Meta
-        title="HackMIT-2022"
-        description="HackMIT Project from group Tabe#94"
+        title="TwiTick - HackMIT 2022"
+        description="TwiTick - a HackMIT 2022 project"
         image="/404.webp"
-        keywords="404, not found, error"
-        slug="/404"
+        keywords="HackMIT, HackMIT 2022, TwiTick, Twitter, Stocks"
+        slug="/"
       />
 
-      <h1>Sample Plots below</h1>
+      <Hero />
     </>
   );
 };
