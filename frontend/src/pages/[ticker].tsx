@@ -28,7 +28,7 @@ const Ticker = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (ticker) {
-      fetch(`http://localhost:8080/tickers/${ticker}`)
+      fetch(`https://com-stepbrobd-hackmit.fly.dev/tickers/${ticker}`)
         .then((res) => res.json())
         .then((res) => {
           setData(res);
@@ -46,8 +46,8 @@ const Ticker = () => {
         title="Sentik-Stocks - HackMIT 2022"
         description="Sentik-Stocks - a HackMIT 2022 project"
         image="/404.webp"
-        keywords="HackMIT, HackMIT 2022, Sentik-Stocks, Twitter, Stocks"
-        slug="/"
+        keywords="HackMIT, HackMIT 2022, Sentik, Twitter, Stocks"
+        slug={"/"+router.basePath}
       />
       <div className="rounded-2xl bg-white pl-4 pr-6 pt-8 pb-8">
       { loading || !ticker ? <h2 className="text-center">Loading...</h2> :
