@@ -57,7 +57,7 @@ const ChartComponent = (props: Props) => {
       <Plot
         className="place-content-center leading-4"
         data={chartData}
-        layout={{ width: 520, height: 340, title: props.data[0].Ticker }}
+        layout={{ width: 1020, height: 680, title: props.data[0].Ticker }}
       />
 
       <p className="text-center leading-4 text-gray-400">
