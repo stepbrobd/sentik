@@ -25,7 +25,7 @@ const Document = () => {
           defer
           id="plausible-analytics"
           strategy="afterInteractive"
-          data-domain="hackmit22.vercel.app"
+          data-domain="hackmit.stepbrobd.com"
           src={"https://plausible.io/js/plausible.js"}
         />
       </Head>
