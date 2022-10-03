@@ -47,11 +47,11 @@ const Meta = (props: Props) => {
       <meta property="og:description" content={props.description} />
       <meta
         property="og:url"
-        content={"https://twitic.stepbrobd.com" + props.slug}
+        content={"https://hackmit2022.vercel.com" + props.slug}
       />
       <meta
         property="og:image"
-        content={"https://twitic.stepbrobd.com" + props.image}
+        content={"https://hackmit2022.vercel.com" + props.image}
       />
       <meta property="robots" content="index, follow" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -59,7 +59,7 @@ const Meta = (props: Props) => {
       <meta name="twitter:title" content={props.title} />
       <meta
         name="twitter:image"
-        content={"https://twitic.stepbrobd.com" + props.image}
+        content={"https://hackmit2022.vercel.com" + props.image}
       />
       <meta name="twitter:site" content="@HackMIT" />
       <meta name="twitter:creator" content="@HackMIT" />

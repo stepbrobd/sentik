@@ -7,7 +7,8 @@ import (
 	"log"
 	"net/http"
 	"os"
-	// dotEnv "github.com/joho/godotenv"
+
+	dotEnv "github.com/joho/godotenv"
 )
 
 type TwitterClient struct {
@@ -17,10 +18,10 @@ type TwitterClient struct {
 }
 
 func MakeClient() *TwitterClient {
-	// err := dotEnv.Load("../.env.local")
-	// if err != nil {
-	// 	log.Fatal("Error loading .env file")
-	// }
+	err := dotEnv.Load("../.env.local")
+	if err != nil {
+		log.Print("No .env file found")
+	}
 	return &TwitterClient{
 		client:   &http.Client{},
 		endpoint: "https://api.twitter.com",
@@ -100,13 +101,12 @@ func (twitter *TwitterClient) SearchRecent(keyword string, count int) ([]interfa
 	query := fmt.Sprintf("%v/2/tweets/search/recent?query=%v%v&max_results=%v", twitter.endpoint, "lang%3Aen%20", keyword, count)
 	req, err := http.NewRequest("GET", query, nil)
 	if err != nil {
-		log.Printf("Error Fetching Twitter: %v", err)
 		return nil, err
 	}
 
 	res, err := twitter.sendRequest(req)
 	if err != nil {
-		log.Printf("Error Sending: %v", err)
+		log.Printf("Error Fetching Twitter: %v", err)
 		return nil, err
 	}
 
