@@ -1,9 +1,4 @@
-import { useEffect, useState } from "react";
-import { awsRegion, referenceLocation } from "../utils/regions";
-import { navigation } from "../utils/navigation";
 import Image from "next/image";
-import Link from "next/link";
-import Divider from "./divider";
 
 const Footer = () => {
   return (
@@ -13,10 +8,10 @@ const Footer = () => {
     >
       <div className="mx-3.5 max-w-3xl space-y-5 overflow-hidden pt-6 xl:mx-0">
         <p className="text-center text-sm">
-          Copyright &copy; {new Date().getFullYear()} TwiTick for HackMIT 2022.
-          All rights reserved.
+          Copyright &copy; {new Date().getFullYear()} Sentik-Stocks for HackMIT
+          2022.
         </p>
-
+        <p className="text-center text-sm">All rights reserved.</p>
         <a
           className="flex h-[28px] items-center justify-center"
           href="https://creativecommons.org/licenses/by-nc/4.0/"
