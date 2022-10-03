@@ -20,8 +20,13 @@ internal_port = 8080
 protocol = "tcp"
 
 [[services.ports]]
+handlers = ["http"]
+port = 80
+force_https = true
+
+[[services.ports]]
 handlers = ["http", "tls"]
-port = 8080
+port = 443
 
 [[services.tcp_checks]]
 grace_period = "1s"
