@@ -49,55 +49,64 @@ const Ticker = () => {
         keywords="HackMIT, HackMIT 2022, Sentik, Twitter, Stocks"
         slug={"/"+router.basePath}
       />
-      <div className="rounded-2xl bg-white pl-4 pr-6 pt-8 pb-8">
+
+      <div className="min-w-fit flex-1 rounded-3xl bg-white pl-4 pr-6 pt-8 pb-8 mt-10">
       { loading || !ticker ? <h2 className="text-center">Loading...</h2> :
-        ticker.map((tick) => ( 
+        ticker.map((tick) => (
           <>
-          <Chart key={tick} data={data[tick]} /> 
-          <table className="min-w-full max-w-full divide-y divide-gray-300 rounded-full pr-10 pl-10">
-            <thead className="bg-yellow-400">
-              <tr className="divide-x divide-gray-200">
+          <Chart key={tick} data={data[tick]}
+          layout={{ width: 500, height: 500 }}
+          />
+
+
+
+
+          <h1 className="mt-10 pt-8 text-center text-bold leading-6">Tweets</h1>
+
+          <table className="flex-1 min-w-fit max-w-full divide-y divide-gray-300 rounded-full pr-10 pl-10 mt-2">
+            <thead className="bg-yellow-400 min-w-fit ">
+              <tr className="divide-x divide-gray-200 min-w-fit ">
                 <th
                   scope="col"
-                  className="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-black sm:pl-6"
+                  className="py-3.5 pl-4 pr-4 text-left text-sm min-w-fit  font-semibold text-black sm:pl-6"
                 >
                   Stock
                 </th>
                 <th
                   scope="col"
-                  className="px-4 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  className="px-4 py-3.5 text-left text-sm min-w-fit font-semibold text-gray-900"
                 >
                   Tweet
                 </th>
                 <th
                   scope="col"
-                  className="px-4 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  className="px-4 py-3.5 text-left min-w-fit text-sm font-semibold text-gray-900"
                 >
                   Time
                 </th>
                 <th
                   scope="col"
-                  className="py-3.5 pl-4 pr-4 text-left text-sm font-semibold text-gray-900 sm:pr-6"
+                  className="py-3.5 pl-4 pr-4 text-left min-w-fit text-sm font-semibold text-gray-900 sm:pr-6"
                 >
                   Sentiment
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200 bg-white">
+            <tbody className="divide-y divide-gray-200">
               {data[tick].map((item) => (
-                <tr key={item.Id} className="divide-x divide-gray-200">
-                  <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
+                <tr key={item.Id} className="divide-x divide-gray-200 min-w-fit ">
+                  <td className=" min-w-fit whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
                     {tick}
                   </td>
-                  <td className="whitespace-wrap p-4 text-sm text-gray-500">
+                  <td className=" min-w-fit whitespace-wrap p-4 text-sm text-gray-500">
                     {" "}
-                    <span> &quot; </span>
+                    <span min-w-fit > &quot; </span>
                     {item.Content} <span> &quot; </span>
                   </td>
-                  <td className="whitespace-wrap p-4 text-sm text-gray-500">
+                  <td className="whitespace-wrap min-w-fit  p-4 text-sm text-gray-500">
                     {item.Date}
                   </td>
-                  <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-6">
+                  <td className="whitespace-nowrap min-w-fit  py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-6">
                     {item.Sent === "positive" ? <Positive /> : <Negative />}
                   </td>
                 </tr>

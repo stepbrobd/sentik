@@ -187,7 +187,7 @@ const Content = ({ children }: Props) => {
                   </h1>
 
                   <h2 className="text-md mt-4 flex items-center justify-between font-bold tracking-normal text-white md:text-2xl">
-                    <span>
+                    <span className="leading-6">
                       {" "}
                       <b className="text-yellow-500">LIVE</b> stock sentiment
                       report

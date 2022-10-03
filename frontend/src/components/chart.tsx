@@ -53,17 +53,22 @@ const ChartComponent = (props: Props) => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-2 pt-6 pb-8">
+  <div className="mb-8 rounded-full">
+    <div className="flex justify-center">
       <Plot
-        className="place-content-center leading-4"
+        className="place-content-center"
         data={chartData}
-        layout={{ width: 1020, height: 680, title: props.data[0].Ticker }}
+        layout={{ width: 500, height: 500, title: props.data[0].Ticker }}
       />
+    </div>
 
+    <div>
       <p className="text-center leading-4 text-gray-400">
         ({props.data.length} tweets in the last 5 minutes)
       </p>
     </div>
+
+  </div>
   );
 };
 
