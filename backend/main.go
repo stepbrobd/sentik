@@ -67,10 +67,10 @@ func (api *API) fetchTweet(ticker string) []Tweet {
 func (api *API) getTickers(c *gin.Context) {
 	c.Header("Access-Control-Allow-Origin", "*")
 	tickers := strings.Split(c.Param("tickers"), ",")
-	res := make(Tickers)
+	res := make(Tickers, len(tickers))
 	for _, ticker := range tickers {
 		log.Printf("Fetching data for %v...", ticker)
-		res["data"] = api.fetchTweet(ticker)
+		res[ticker] = api.fetchTweet(ticker)
 	}
 	c.IndentedJSON(http.StatusOK, res)
 }
