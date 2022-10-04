@@ -10,7 +10,7 @@ const Error = ({ statusCode }: Props) => {
   return (
     <>
       <Meta
-        title="{statusCode} Internal Server Error - Yifei Sun"
+        title="{statusCode} Internal Server Error - Sentik"
         description="The page you are looking for caused an error on the server."
         image="/500.webp"
         keywords="500, 50x, internal server error, error"
