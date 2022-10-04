@@ -1,3 +1,3 @@
-# HackMIT 2022
+# Sentik - a HackMIT 2022 project
 
-<https://hackmit22.vercel.app>
+<https://sentik.xyz>
