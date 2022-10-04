@@ -9,8 +9,8 @@ import (
 
 	"hackmit/twitter"
 
-	"github.com/cdipaolo/sentiment"
-	"github.com/gin-gonic/gin"
+	sentiment "github.com/cdipaolo/sentiment"
+	gin "github.com/gin-gonic/gin"
 )
 
 type Tickers map[string][]Tweet

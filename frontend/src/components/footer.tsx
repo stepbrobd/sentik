@@ -8,8 +8,7 @@ const Footer = () => {
     >
       <div className="mx-3.5 max-w-3xl space-y-5 overflow-hidden pt-6 xl:mx-0">
         <p className="text-center text-sm">
-          Copyright &copy; {new Date().getFullYear()} Sentik-Stocks for HackMIT
-          2022.
+          Copyright &copy; {new Date().getFullYear()} Sentik for HackMIT 2022.
         </p>
         <p className="text-center text-sm">All rights reserved.</p>
         <a

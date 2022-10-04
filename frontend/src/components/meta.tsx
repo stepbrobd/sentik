@@ -1,5 +1,4 @@
 import Head from "next/head";
-//import logo from './../../public/logo.png';
 
 type Props = {
   title: string;
@@ -12,31 +11,13 @@ type Props = {
 const Meta = (props: Props) => {
   return (
     <Head>
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="180x180"
-      href="/logo-180.png"
-    />
+      <link rel="icon" type="image/png" sizes="180x180" href="/logo-180.png" />
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/logo-32.png"
-    />
+      <link rel="icon" type="image/png" sizes="32x32" href="/logo-32.png" />
 
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/logo-16.png"
-      />
+      <link rel="icon" type="image/png" sizes="16x16" href="/logo-16.png" />
 
-      <link
-        rel="shortcut icon"
-        href="/favicon.ico"
-      />
+      <link rel="shortcut icon" href="/favicon.ico" />
 
       <title>{props.title}</title>
       <meta name="description" content={props.description} />
@@ -45,22 +26,13 @@ const Meta = (props: Props) => {
       <meta property="og:type" content="website" />
       <meta property="og:title" content={props.title} />
       <meta property="og:description" content={props.description} />
-      <meta
-        property="og:url"
-        content={"https://hackmit2022.vercel.com" + props.slug}
-      />
-      <meta
-        property="og:image"
-        content={"https://hackmit2022.vercel.com" + props.image}
-      />
+      <meta property="og:url" content={"https://sentik.xyz" + props.slug} />
+      <meta property="og:image" content={"https://sentik.xyz" + props.image} />
       <meta property="robots" content="index, follow" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:description" content={props.description} />
       <meta name="twitter:title" content={props.title} />
-      <meta
-        name="twitter:image"
-        content={"https://hackmit2022.vercel.com" + props.image}
-      />
+      <meta name="twitter:image" content={"https://sentik.xyz" + props.image} />
       <meta name="twitter:site" content="@HackMIT" />
       <meta name="twitter:creator" content="@HackMIT" />
     </Head>
