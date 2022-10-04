@@ -5,7 +5,7 @@ const Error = () => {
   return (
     <>
       <Meta
-        title="404 Not Found - Yifei Sun"
+        title="404 Not Found - Sentik"
         description="The page you are looking for does not exist."
         image="/404.webp"
         keywords="404, not found, error"

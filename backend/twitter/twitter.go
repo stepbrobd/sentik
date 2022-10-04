@@ -18,7 +18,7 @@ type TwitterClient struct {
 }
 
 func MakeClient() *TwitterClient {
-	err := dotEnv.Load("../.env.local")
+	err := dotEnv.Load("../.env")
 	if err != nil {
 		log.Print("No .env file found")
 	}
