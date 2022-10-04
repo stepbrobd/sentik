@@ -8,6 +8,27 @@ const Footer = () => {
     >
       <div className="mx-3.5 max-w-3xl space-y-5 overflow-hidden pt-6 xl:mx-0">
         <p className="text-center text-sm">
+          User interactions are tracked with{" "}
+          <a
+            className="light-mode-link-color dark:dark-mode-link-color"
+            href="https://heap.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Heap Analytics
+          </a>{" "}
+          and{" "}
+          <a
+            className="light-mode-link-color dark:dark-mode-link-color"
+            href="https://plausible.io"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Plausible Analytics
+          </a>
+          .
+        </p>
+        <p className="text-center text-sm">
           Copyright &copy; {new Date().getFullYear()} Sentik for HackMIT 2022.
         </p>
         <p className="text-center text-sm">All rights reserved.</p>
