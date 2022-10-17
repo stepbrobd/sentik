@@ -9,6 +9,7 @@ import (
 	"sentik.xyz/route/v1/tickers"
 
 	sentry "github.com/getsentry/sentry-go"
+	sentryGin "github.com/getsentry/sentry-go/gin"
 	cors "github.com/gin-contrib/cors"
 	gin "github.com/gin-gonic/gin"
 )
@@ -36,6 +37,7 @@ func main() {
 	router := gin.New()
 	router.Use(gin.Logger())
 	router.Use(gin.Recovery())
+	router.Use(sentryGin.New(sentryGin.Options{}))
 	router.Use(cors.New(cors.Config{
 		AllowOrigins: []string{"*"},
 		ExposeHeaders: []string{
