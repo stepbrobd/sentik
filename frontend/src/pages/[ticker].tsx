@@ -32,7 +32,7 @@ const Ticker = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (ticker) {
-      fetch(`${ENDPOINT}/v1/tickers/${ticker}`)
+      fetch(`${ENDPOINT}/v1/tickers/${ticker}`, { method: "GET" })
         .then((res) => res.json())
         .then((res) => {
           setData(res);
