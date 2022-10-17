@@ -1,4 +1,4 @@
-app = "xyz-sentik-api-v1"
+app = "xyz-sentik-api"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
