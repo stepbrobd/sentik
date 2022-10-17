@@ -9,6 +9,7 @@ buildpacks = ["gcr.io/paketo-buildpacks/go"]
 
 [env]
 PORT = "8080"
+ENV = "production"
 GIN_MODE = "release"
 
 [[services]]
