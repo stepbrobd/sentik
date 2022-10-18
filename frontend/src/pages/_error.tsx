@@ -1,12 +1,9 @@
-import type { NextPageContext } from "next";
+import * as Sentry from "@sentry/nextjs";
+import NextErrorComponent, { ErrorProps } from "next/error";
 import MDXImage from "../components/mdx-image";
 import Meta from "../components/meta";
 
-type Props = {
-  statusCode?: number;
-};
-
-const Error = ({ statusCode }: Props) => {
+const Error = (props: ErrorProps) => {
   return (
     <>
       <Meta
@@ -17,7 +14,7 @@ const Error = ({ statusCode }: Props) => {
         slug="/{statusCode}"
       />
 
-      <h1>{statusCode} Internal Server Error</h1>
+      <h1>{props.statusCode} Internal Server Error</h1>
 
       <MDXImage
         src="/500.webp"
@@ -27,9 +24,9 @@ const Error = ({ statusCode }: Props) => {
   );
 };
 
-Error.getInitialProps = ({ res, err }: NextPageContext) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-  return { statusCode };
+Error.getInitialProps = async (contextData: any) => {
+  await Sentry.captureUnderscoreErrorException(contextData);
+  return NextErrorComponent.getInitialProps(contextData);
 };
 
 export default Error;

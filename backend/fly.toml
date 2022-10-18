@@ -1,4 +1,4 @@
-app = "xyz-sentik-api-v1"
+app = "xyz-sentik-api"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -8,8 +8,9 @@ builder = "paketobuildpacks/builder:base"
 buildpacks = ["gcr.io/paketo-buildpacks/go"]
 
 [env]
-PORT = "8080"
+ENV = "production"
 GIN_MODE = "release"
+PORT = "8080"
 
 [[services]]
 internal_port = 8080

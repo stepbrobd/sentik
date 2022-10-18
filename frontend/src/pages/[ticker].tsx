@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { ENDPOINT } from "../utils/config";
 import Meta from "../components/meta";
 import Positive from "../components/positive-sentiment";
 import Negative from "../components/negative-sentiment";
@@ -13,11 +14,11 @@ type Tickers = {
 };
 
 type Data = {
-  Id: string;
-  Ticker: string;
-  Sent: string;
-  Content: string;
-  Date: string;
+  id: string;
+  ticker: string;
+  sentiment: string;
+  content: string;
+  date: string;
 };
 
 const Ticker = () => {
@@ -31,7 +32,7 @@ const Ticker = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (ticker) {
-      fetch(`https://v1.api.sentik.xyz/tickers/${ticker}`)
+      fetch(`${ENDPOINT}/v1/tickers/${ticker}`, { method: "GET" })
         .then((res) => res.json())
         .then((res) => {
           setData(res);
@@ -51,7 +52,7 @@ const Ticker = () => {
         keywords="HackMIT, HackMIT 2022, Sentik, Twitter, Stocks"
         slug={router.basePath}
       />
-      <div className="rounded-2xl bg-white pl-4 pr-6 pt-8 pb-8">
+      <div className="overflow-auto rounded-2xl bg-white pl-4 pr-6 pt-8 pb-8">
         {loading || !ticker ? (
           <h2 className="text-center">Loading...</h2>
         ) : (
@@ -89,20 +90,24 @@ const Ticker = () => {
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
                   {data[tick].map((item) => (
-                    <tr key={item.Id} className="divide-x divide-gray-200">
+                    <tr key={item.id} className="divide-x divide-gray-200">
                       <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
                         {tick}
                       </td>
                       <td className="whitespace-wrap p-4 text-sm text-gray-500">
                         {" "}
                         <span> &quot; </span>
-                        {item.Content} <span> &quot; </span>
+                        {item.content} <span> &quot; </span>
                       </td>
                       <td className="whitespace-wrap p-4 text-sm text-gray-500">
-                        {item.Date}
+                        {item.date}
                       </td>
                       <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-6">
-                        {item.Sent === "positive" ? <Positive /> : <Negative />}
+                        {item.sentiment === "positive" ? (
+                          <Positive />
+                        ) : (
+                          <Negative />
+                        )}
                       </td>
                     </tr>
                   ))}

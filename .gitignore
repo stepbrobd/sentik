@@ -206,3 +206,6 @@ secring.*
 ### Service Worker template
 /public/sw*
 /public/workbox*
+
+# Sentry
+*/.sentryclirc

@@ -1,6 +1,4 @@
-/**
- * @type {import("next").NextConfig}
- */
+const { withSentryConfig } = require("@sentry/nextjs");
 
 const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
@@ -11,11 +9,19 @@ const withMDX = require("@next/mdx")({
   },
 });
 
+/**
+ * @type {import("next").NextConfig}
+ */
 const nextConfig = withMDX({
+  sentry: {
+    hideSourceMaps: false,
+    widenClientFileUpload: true,
+    transpileClientSDK: true,
+  },
   reactStrictMode: true,
   swcMinify: true,
   productionBrowserSourceMaps: true,
   pageExtensions: ["ts", "tsx", "mdx"],
 });
 
-module.exports = nextConfig;
+module.exports = withSentryConfig(nextConfig, { silent: true });
