@@ -40,7 +40,10 @@ func main() {
 	router.Use(sentryGin.New(sentryGin.Options{}))
 	router.Use(cors.New(cors.Config{
 		AllowOrigins: []string{"*"},
+		AllowHeaders: []string{"*"},
+		AllowMethods: []string{"GET"},
 		ExposeHeaders: []string{
+			"Content-Encoding",
 			"Content-Length",
 			"Content-Type",
 		},
