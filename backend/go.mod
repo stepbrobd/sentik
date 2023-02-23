@@ -4,13 +4,13 @@ go 1.19
 
 require (
 	github.com/cdipaolo/sentiment v0.0.0-20200617002423-c697f64e7f10
+	github.com/getsentry/sentry-go v0.14.0
+	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-gonic/gin v1.8.1
 )
 
 require (
 	github.com/cdipaolo/goml v0.0.0-20220715001353-00e0c845ae1c // indirect
-	github.com/getsentry/sentry-go v0.14.0 // indirect
-	github.com/gin-contrib/cors v1.4.0 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
@@ -26,7 +26,7 @@ require (
 	golang.org/x/crypto v0.0.0-20220926161630-eccd6366d1be // indirect
 	golang.org/x/net v0.0.0-20221004154528-8021a29435af // indirect
 	golang.org/x/sys v0.0.0-20220928140112-f11e5e49a4ec // indirect
-	golang.org/x/text v0.3.7 // indirect
+	golang.org/x/text v0.3.8 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
