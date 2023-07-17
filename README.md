@@ -1,3 +1,3 @@
 # Sentik - a HackMIT 2022 project
 
-<https://sentik.xyz>
+After changes in Twitter API, we've decided to close down the project.
