@@ -1,6 +1,7 @@
 import "../styles/tailwind.css";
 
 import { AppProps } from "next/app";
+import { Analytics } from "@vercel/analytics/react";
 import Layout from "../components/layout";
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -9,6 +10,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+      <Analytics />
     </>
   );
 };
